@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  parkingplotdb:
+    image: postgres:15.1
+    volumes:
+      - db-data:/var/lib/postgresql/webdata
+    environment:
+      POSTGRES_DB: user-service
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - 5435:5435
+    command: -p 5435 -c max_connections=400
+
+#  miza-redis:
+#    image: redis/redis-stack-server:latest
+#    ports:
+#      - "6379:6379"
+volumes:
+  db-data:

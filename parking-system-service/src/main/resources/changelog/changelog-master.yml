@@ -1,0 +1,6 @@
+# set the JSON schema in your IDE to Liquibase, it helps a lot!
+databaseChangeLog:
+  - include:
+      file: changelog/ChangeLog-1.yml
+# example: https://docs.liquibase.com/concepts/changelogs/sql-format.html
+# mvn org.liquibase:liquibase-maven-plugin:generateChangeLog

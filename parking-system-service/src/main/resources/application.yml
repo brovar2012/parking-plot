@@ -1,0 +1,19 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: parking-system-service
+  datasource:
+    username: admin
+    url: jdbc:postgresql://localhost:5435/parking-system-service
+    password: admin
+    liquibase:
+      enabled: true
+      change-log: 'classpath:changelog/changelog-master.yml'
+      url: 'jdbc:postgresql://localhost:5435/parking-system-service'
+      user: 'admin'
+      password: 'admin'
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

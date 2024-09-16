@@ -1,0 +1,74 @@
+databaseChangeLog:
+- changeSet:
+    id: MIZA-1
+    author: MIZA-APP
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: company_contact_person_pkey
+            name: id
+            type: UUID
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: mobile
+            type: VARCHAR(255)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: company_profile_id
+            type: UUID
+        tableName: company_contact_person
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: company_profile_pkey
+            name: id
+            type: UUID
+        - column:
+            name: company_name
+            type: VARCHAR(255)
+        - column:
+            name: cr
+            type: VARCHAR(255)
+        - column:
+            name: misa_license
+            type: VARCHAR(255)
+        - column:
+            name: activity
+            type: VARCHAR(255)
+        tableName: company_profile
+    - addUniqueConstraint:
+        columnNames: cr
+        constraintName: uk_2tdk6hlr4mm0fb890dojsa489
+        tableName: company_profile
+    - addUniqueConstraint:
+        columnNames: misa_license
+        constraintName: uk_3yv6t72virabnim26oud4y8km
+        tableName: company_profile
+    - addForeignKeyConstraint:
+        baseColumnNames: company_profile_id
+        baseTableName: company_contact_person
+        constraintName: fkgvhd9btoo2kqxqpvxh6oc7gqy
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: company_profile
+        validate: true
+

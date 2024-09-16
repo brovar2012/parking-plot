@@ -9,3 +9,7 @@ Test assessment project 'Parking plot'
 - можно все переделать на реактивщину
 - UserService можно разделить 
 
+
+- 1 роль на юзера
+- config-server ? 
+- сделать какую то общую common-lib-у

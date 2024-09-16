@@ -1,0 +1,105 @@
+databaseChangeLog:
+  - changeSet:
+      id: User-Service-1
+      author: Dzmitry Brouka
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role
+                  type: VARCHAR(100)
+              - column:
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  name: last_name
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(350)
+              - column:
+                  name: is_active
+                  type: BOOLEAN
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+            tableName: users
+#        - createTable:
+#            columns:
+#              - column:
+#                  constraints:
+#                    nullable: false
+#                    primaryKey: true
+#                  name: role_id
+#                  type: UUID
+#              - column:
+#                  name: role_name
+#                  type: VARCHAR(255)
+#              - column:
+#                  name: is_active
+#                  type: BOOLEAN
+#            tableName: role
+#        - changeSet:
+#            id: User-Service-2
+#            author: Dzmitry Brouka
+#            changes:
+#              - addColumn:
+#                  tableName: user
+#                  columns:
+#                    - column:
+#                        name: role_id
+#                        type: UUID
+#              - addForeignKeyConstraint:
+#                  baseColumnNames: role_id
+#                  baseTableName: user
+#                  constraintName: fk_user_role_id
+#                  deferrable: false
+#                  initiallyDeferred: false
+#                  onDelete: NO ACTION
+#                  onUpdate: NO ACTION
+#                  referencedColumnNames: role_id
+#                  referencedTableName: user_role
+#                  validate: true
+  - changeSet:
+      id: User-Service-2
+      author: Dzmitry Brouka
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: '86d37949-2280-4eda-ae08-1cb86ec11a24'
+              - column:
+                  name: first_name
+                  value: 'Dzmitry'
+              - column:
+                  name: last_name
+                  value: 'Brouka'
+              - column:
+                  name: email
+                  value: 'brovar2012@gmail.com'
+              - column:
+                  name: password
+                  value: '$2y$10$L9KgE'
+              - column:
+                  name: role
+                  value: 'ROLE_SUPER_ADMIN'
+              - column:
+                  name: is_active
+                  value: true
+

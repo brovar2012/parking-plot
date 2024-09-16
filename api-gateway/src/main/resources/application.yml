@@ -7,11 +7,11 @@ spring:
   cloud:
     gateway:
       routes:
-        ## service1
-        - id: service1
-          uri: lb://service1
+        ## user-service
+        - id: user-service
+          uri: lb://user-service
           predicates:
-            - Path=/service1/**
+            - Path=/user-service/**
           filters:
             - StripPrefix=1
 
