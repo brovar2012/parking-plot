@@ -1,0 +1,14 @@
+name: Keep Render Alive
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'   # раз в 2 часа
+  workflow_dispatch:        # можно запускать вручную
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render service
+        run: |
+          curl -fsS https://ai-commenting-tool.onrender.com/hello || true
