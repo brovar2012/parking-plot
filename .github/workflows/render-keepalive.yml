@@ -1,14 +1,14 @@
-name: Keep Render Alive
+# name: Keep Render Alive
 
-on:
-  schedule:
-    - cron: '*/15 * * * *'   # каждые 15 минут
-  workflow_dispatch:         # можно запускать вручную
+# on:
+#   schedule:
+#     - cron: '*/15 * * * *'   # каждые 15 минут
+#   workflow_dispatch:         # можно запускать вручную
 
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Ping Render service
-        run: |
-          curl -fsS https://ai-commenting-tool.onrender.com/hello || true
+# jobs:
+#   ping:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Ping Render service
+#         run: |
+#           curl -fsS https://ai-commenting-tool.onrender.com/hello || true
