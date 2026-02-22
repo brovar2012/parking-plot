@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping other service
         run: |
-          curl -fsS https://guilty-porpoise-brovar2012-04377a2e.koyeb.app/health || true
+          curl -fsS https://guilty-porpoise-brovar2012-04377a2e.koyeb.app/hello || true
