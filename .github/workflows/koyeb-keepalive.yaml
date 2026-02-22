@@ -1,0 +1,14 @@
+name: Keep Koyeb Service Alive
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # раз в час
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping other service
+        run: |
+          curl -fsS https://guilty-porpoise-brovar2012-04377a2e.koyeb.app/health || true
